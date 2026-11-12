@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EU-Förderung in Norwegen</title>
+  <style>
+    :root {
+      --dark: #1a365d;
+      --blue: #2b6cb0;
+      --light: #ebf8ff;
+      --soft: #f0f4f8;
+      --gray: #4a5568;
+      --muted: #718096;
+      --green: #2f855a;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--gray);
+      background: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 32px auto;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--dark), var(--blue));
+      color: var(--white);
+      padding: 48px 40px 40px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .content {
+      padding: 36px 40px 48px;
+    }
+
+    .core {
+      background: var(--light);
+      border-left: 4px solid var(--blue);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 32px;
+      font-size: 0.98rem;
+      color: var(--dark);
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      color: var(--dark);
+      margin: 28px 0 12px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1rem;
+      color: var(--blue);
+      margin: 18px 0 6px;
+      font-weight: 700;
+    }
+
+    p, li {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin-bottom: 12px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 16px 0 28px;
+    }
+
+    .pillar {
+      background: var(--soft);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #cbd5e0;
+    }
+
+    .pillar-head {
+      background: var(--blue);
+      color: var(--white);
+      text-align: center;
+      padding: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .pillar-body {
+      padding: 12px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .numbers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 16px 0 8px;
+    }
+
+    .num-card {
+      background: var(--soft);
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+
+    .num-card strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    .num-card span {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .block {
+      margin-bottom: 28px;
+    }
+
+    .block-header {
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .block-header.ccs {
+      background: var(--dark);
+    }
+
+    .block-header.h2 {
+      background: var(--green);
+    }
+
+    .project {
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+    }
+
+    .project strong {
+      color: var(--dark);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .impact-label {
+      background: var(--light);
+      padding: 10px 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--dark);
+      border-bottom: 1px solid #cbd5e0;
+    }
+
+    .impact-text {
+      background: var(--soft);
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #cbd5e0;
+    }
+
+    .impact-grid .impact-label:last-of-type,
+    .impact-grid .impact-text:last-of-type {
+      border-bottom: none;
+    }
+
+    .flow {
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 16px 0 24px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+    }
+
+    .flow-step {
+      background: var(--blue);
+      color: var(--white);
+      padding: 12px 14px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .flow-desc {
+      background: var(--soft);
+      padding: 12px 14px;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .flow-row:last-child .flow-step,
+    .flow-row:last-child .flow-desc {
+      border-bottom: none;
+    }
+
+    .final {
+      background: var(--light);
+      border: 1.5px solid var(--blue);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 28px;
+    }
+
+    .final strong {
+      color: var(--dark);
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .final p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 40px 28px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 700px) {
+      .pillars, .numbers {
+        grid-template-columns: 1fr 1fr;
+      }
+      .flow-row {
+        grid-template-columns: 1fr;
+      }
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+      header, .content {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>EU-Förderung in Norwegen</h1>
+      <p>Wie europäische Mittel Klimatechnologien an der norwegischen Küste möglich machen</p>
+    </header>
+
+    <div class="content">
+      <div class="core">
+        Norwegen ist kein EU-Mitglied. Trotzdem fließen gezielt EU-Mittel in CCS, Direct Air Capture und Wasserstoff – weil die Projekte europäische Klimaziele konkret voranbringen.
+      </div>
+
+      <h2>Drei Förderlogiken – ein Ziel</h2>
+      <p>Alle Projekte dienen demselben Zweck: Europa klimaneutral und technologisch handlungsfähig machen.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-head">1. SPEICHERN</div>
+          <div class="pillar-body">CO₂ dauerhaft unter dem Meer lagern (Northern Lights + Atlas)</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-head">2. ENTFERNEN</div>
+          <div class="pillar-body">CO₂ direkt aus der Luft holen (Project Furu)</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-head">3. ERSETZEN</div>
+          <div class="pillar-body">Fossile Kraftstoffe durch Wasserstoff ersetzen (NORHyWAY)</div>
+        </div>
+      </div>
+
+      <h2>Wie viel fließt wohin?</h2>
+      <div class="numbers">
+        <div class="num-card">
+          <strong>131 Mio. €</strong>
+          <span>Northern Lights Phase 2<br>CEF Energy</span>
+        </div>
+        <div class="num-card">
+          <strong>223 Mio. €</strong>
+          <span>Atlas CCS<br>Innovation Fund</span>
+        </div>
+        <div class="num-card">
+          <strong>9,1 Mio. €</strong>
+          <span>Project Furu<br>Innovation Fund</span>
+        </div>
+        <div class="num-card">
+          <strong>20–21 Mio. €</strong>
+          <span>NORHyWAY<br>Horizon Europe</span>
+        </div>
+      </div>
+      <p class="note">Zusätzlich: Innovation-Fund-Mittel für die automatisierte Windfertigung auf Stord (Aker Solutions).</p>
+
+      <h2>Warum gerade Norwegen?</h2>
+      <ul>
+        <li>Geologie: große, sichere Speicher unter der Nordsee.</li>
+        <li>Energie: fast ausschließlich erneuerbarer Strom (Wasserkraft).</li>
+        <li>Kompetenz: Jahrzehnte Offshore-Erfahrung.</li>
+        <li>Zugang: Assoziierung an Horizon Europe und den Innovation Fund.</li>
+      </ul>
+
+      <h2>Die Projekte als zusammenhängende Kette</h2>
+      <p>Nicht sechs Einzelprojekte – sondern Bausteine einer europäischen Klimainfrastruktur.</p>
+
+      <div class="block">
+        <div class="block-header ccs">BAUSTEIN A – CO₂ nach Norwegen bringen und speichern</div>
+
+        <div class="project">
+          <strong>Northern Lights (Øygarden) ist das Rückgrat.</strong>
+          Schiffe bringen flüssiges CO₂ aus Europa. Es wird in Tanks zwischengespeichert und über eine Pipeline 2.600 m unter den Nordseeboden gepumpt. Phase 1 läuft. Phase 2 (ca. 131 Mio. € CEF) erhöht die Kapazität auf mindestens 5 Mio. t/Jahr.
+        </div>
+
+        <div class="project">
+          <strong>Project Furu hängt direkt daran.</strong>
+          Neben dem Terminal filtert Sirona CO₂ aus der Luft (DACCS). Bis zu 9,1 Mio. € Innovation Fund. Das CO₂ soll über CarbonLink in Northern Lights eingespeist werden. Erstes DACCS-Projekt dieser Förderlinie.
+        </div>
+
+        <div class="project">
+          <strong>Atlas CCS erweitert die Kapazität.</strong>
+          Paralleles Offshore-Konzept (223 Mio. € Innovation Fund). CO₂ per Schiff, direkte Injektion in der Nordsee. Mehr Speicheroptionen = mehr Sicherheit für europäische Emittenten.
+        </div>
+
+        <div class="project">
+          <strong>Stord liefert die Technik.</strong>
+          Aker Solutions fertigt Komponenten für Northern Lights Phase 2 und baut eine automatisierte Linie für Offshore-Wind. EU-Mittel halten kritische Fertigung in Europa.
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header h2">BAUSTEIN B – Fossile Treibstoffe ersetzen</div>
+
+        <div class="project">
+          <strong>NORHyWAY verbindet die Küste.</strong>
+          Horizon Europe (ca. 20–21 Mio. €) finanziert den Aufbau eines Hydrogen Valleys von of Slagentangen (Süden) über Kristiansund bis Hammerfest (Norden). Ziel: ca. 37.000 t grüner Wasserstoff pro Jahr.
+        </div>
+
+        <div class="project">
+          <strong>Kristiansund (Vestbase) ist der maritime Hub.</strong>
+          Über 16.000 Schiffsanläufe pro Jahr. Hier wird Wasserstoff produziert und direkt an Schiffe abgegeben. Praxis-Test für emissionsfreie Schifffahrt.
+        </div>
+
+        <div class="project">
+          <strong>Slagentangen und Hammerfest schließen den Korridor.</strong>
+          Süd- und Nordanker. Zusammen entsteht eine durchgängige Infrastruktur für Schifffahrt, Schwerverkehr und Industrie.
+        </div>
+      </div>
+
+      <h2>Was das konkret bewirkt</h2>
+      <div class="impact-grid">
+        <div class="impact-label">Für die EU</div>
+        <div class="impact-text">Zugang zu großskaliger CO₂-Speicherung und realen Wasserstoff-Wertschöpfungsketten – ohne alles selbst bauen zu müssen.</div>
+        <div class="impact-label">Für die Industrie</div>
+        <div class="impact-text">Planbare Abscheidungs- und Speicheroptionen. Einstieg in emissionsfreie Antriebe.</div>
+        <div class="impact-label">Für Norwegen</div>
+        <div class="impact-text">Neue industrielle Perspektiven an der Küste. Rolle als strategischer Klimapartner Europas.</div>
+        <div class="impact-label">Für das Klima</div>
+        <div class="impact-text">Konkrete Tonnen: Speicher-Kapazitäten im Millionenbereich + zehntausende Tonnen Wasserstoff pro Jahr.</div>
+      </div>
+
+      <h2>So bauen wir die Story Map</h2>
+      <p>Klare Dramaturgie: vom großen Bild zu den konkreten Orten und zurück zur Wirkung.</p>
+
+      <div class="flow">
+        <div class="flow-row">
+          <div class="flow-step">1. COVER</div>
+          <div class="flow-desc">Titel + starkes Bild. Sofort klar: EU-Mittel, Norwegen, Klima.</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-step">2. KERNBOTSCHAFT</div>
+          <div class="flow-desc">Ein kurzer Block: Warum die EU hier investiert und was das strategisch bedeutet.</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-step">3. MAP TOUR</div>
+          <div class="flow-desc">Die 6 Standorte. Pro Stop: Was passiert hier? Wie viel EU-Geld? Was bringt es?</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-step">4. SIDECAR „SPEICHERN“</div>
+          <div class="flow-desc">Northern Lights + Furu + Atlas. Zeigt die CCS-Kette als zusammenhängendes System.</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-step">5. SIDECAR „ERSETZEN“</div>
+          <div class="flow-desc">NORHyWAY von Süd nach Nord. Wasserstoff als praktischer Baustein.</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-step">6. WIRKUNG &amp; ZAHLEN</div>
+          <div class="flow-desc">Gesamtförderung, konkrete Effekte, europäische Bedeutung. Abschluss mit Quellen.</div>
+        </div>
+      </div>
+
+      <h2>Stil in der Story Map</h2>
+      <ul>
+        <li>Kurze Sätze. Eine Aussage pro Abschnitt.</li>
+        <li>Förderung immer sichtbar machen (Betrag + Programm).</li>
+        <li>Verbindungen erklären: „Furu speist in Northern Lights ein.“</li>
+        <li>Weniger Technik-Details, mehr Bedeutung und Wirkung.</li>
+        <li>Quellen direkt unter den Projekten, nicht erst am Ende verstecken.</li>
+      </ul>
+
+      <div class="final">
+        <strong>Kern der Story</strong>
+        <p>
+          Die EU investiert in norwegische Projekte, weil sie europäische Probleme lösen:
+          CO₂ muss irgendwo hin, Wasserstoff braucht Infrastruktur, Lieferketten müssen in Europa bleiben.
+          Norwegen liefert die Geologie, den Strom und die Kompetenz. Die EU liefert das Kapital und den Rahmen.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      Stand: November 2026 · Quellen: EU Innovation Fund, CEF Energy, Horizon Europe, Northern Lights JV, Sirona Technologies, SINTEF / RENERGY
+    </footer>
+  </div>
+</body>
+</html>
